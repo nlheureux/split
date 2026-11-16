@@ -3,11 +3,6 @@ local enum DrawMode
    "line"
 end
 
-local enum SourceType
-   "stream"
-   "static"
-end
-
 global enum KeyConstant
    "s"
    "w"
@@ -48,15 +43,9 @@ global record love
       clear: function(r: number, g: number, b: number, a: number)
       setLineWidth: function(width: number)
       line: function(x1: number, y1: number, x2: number, y2: number)
-      newImage: function(filename: string, settings?: table): image
-      draw: function(image: image, ...: number)
+      newImage: function(filename: string, settings?: table): Image
+      draw: function(Image: Image, ...: number)
       setColor: function(number, number, number, number)
-   end
-
-   record audio
-      setVolume: function(volume: number)
-      newSource: function(filename: string, type: SourceType): Source
-      play: function(source: Source)
    end
 
    record window
@@ -71,7 +60,11 @@ global record love
    record joystick
       getJoysticks: function(): {Joystick}
    end
-   
-   record image
+
+   record Image 
+       getWidth: function(self): number
+       getHeight: function(self): number
    end
+
+   
 end
