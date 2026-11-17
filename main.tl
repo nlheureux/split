@@ -11,20 +11,20 @@ function love.load() -- Put as much logic in here as possible
 end
 
 local function drawKeys(rows: integer, cols: integer)
-    local x = 325
-    local y = 150
-    local width = 30
-    local height = 30
+    local x = 200
+    local y = 125
+    local width = 60
+    local height = 60
 
     -- Need to reset y coordinate
     for _ = 1, rows do
         love.graphics.rectangle("fill", x, y, width, height) -- fill, x, y, width, height
         for _ = 1, cols do
             love.graphics.rectangle("fill", x, y, width, height) -- fill, x, y, width, height
-            y = y + 40
+            y = y + 80
         end
-        x = x + 40
-        y = 150
+        x = x + 80
+        y = 125
     end
 end
 
